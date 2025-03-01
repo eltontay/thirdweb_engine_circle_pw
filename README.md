@@ -19,6 +19,8 @@ Before proceeding, ensure you have the following:
 
 If you are forking this repository from **Replit**, note that it will not run directly in Replit. This setup requires **Docker**, which is not supported in Replit's environment. After using the template from Replit, you must **download the repository locally** and run the required commands via a terminal.
 
+Additionally, please review the [LICENSE](LICENSE.md) and [SECURITY](SECURITY.md) policies before using or sharing this repository. Unauthorized distribution of sensitive keys or configurations is not recommended.
+
 ## Environment Variables
 
 Create a `.env` file with the required credentials or copy the sample file provided below.
