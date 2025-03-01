@@ -6,10 +6,10 @@ services:
     ports:
       - "3005:3005"
     environment:
-      - ENCRYPTION_PASSWORD=secure-encryption-password-123
-      - THIRDWEB_API_SECRET_KEY=T3f58epey_3XwXv9dF1r784NffOpOF1xygc_LaTPsA12rn4aDEpGYz_x6o3Ew9BlruXxHstzZYe8wiiqpRITkA
-      - ADMIN_WALLET_ADDRESS=0xD16ECd32Ad107D0b909130b325c79B64cf3C0d28
-      - POSTGRES_CONNECTION_URL=postgresql://postgres:postgres@postgres:5432/postgres?sslmode=disable
+      - ENCRYPTION_PASSWORD=${ENCRYPTION_PASSWORD}
+      - THIRDWEB_API_SECRET_KEY=${THIRDWEB_API_SECRET_KEY}
+      - ADMIN_WALLET_ADDRESS=${ADMIN_WALLET_ADDRESS}
+      - POSTGRES_CONNECTION_URL=postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB}?sslmode=disable
       - REDIS_URL=redis://redis:6379/0
       - ENABLE_HTTPS=false
       - LOG_LEVEL=debug
@@ -24,9 +24,9 @@ services:
   postgres:
     image: postgres:14
     environment:
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
-      - POSTGRES_DB=postgres
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=${POSTGRES_DB}
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U postgres"]
       interval: 5s
